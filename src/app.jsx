@@ -255,6 +255,14 @@ export default function AFPQuizApp() {
   const [showArticlePicker, setShowArticlePicker] = useState(false);
 
   useEffect(() => {
+    // Inject global styles
+    const id = "afp-srq-styles";
+    if (!document.getElementById(id)) {
+      const tag = document.createElement("style");
+      tag.id = id;
+      tag.innerHTML = "@keyframes spin{to{transform:rotate(360deg)}}*{box-sizing:border-box}";
+      document.head.appendChild(tag);
+    }
     loadCards().then(c => seedIfNeeded(c)).then(c => { setCards(c); setLoading(false); });
   }, []);
 
@@ -789,7 +797,3 @@ const s = {
   reviewDashBtn: { background:"transparent", border:"1px solid rgba(148,163,184,0.2)", borderRadius:10, padding:"10px 20px", color:"#94A3B8", fontSize:14, cursor:"pointer" },
   reviewAgainBtn: { background:"rgba(59,130,246,0.15)", border:"1px solid rgba(59,130,246,0.4)", borderRadius:10, padding:"10px 20px", color:"#93C5FD", fontSize:14, fontWeight:600, cursor:"pointer" },
 };
-
-const styleTag = document.createElement("style");
-const styleTag = document.createElement("style");
-document.head.appendChild(styleTag);
