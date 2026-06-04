@@ -791,5 +791,5 @@ const s = {
 };
 
 const styleTag = document.createElement("style");
-styleTag.innerHTML = `@keyframes spin{to{transform:rotate(360deg)}}*{box-sizing:border-box}`;
+const styleTag = document.createElement("style");
 document.head.appendChild(styleTag);
